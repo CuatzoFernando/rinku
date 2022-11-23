@@ -1,0 +1,15 @@
+
+<div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
+    <h1>Rinku </h1>
+    <div class="container">
+        <form class="row g-5" autocomplete="off">
+            <div class="col-auto">
+              <label for="identification" class="visually-hidden">Identificación</label>
+              <input type="text" class="form-control" id="identification" name="buscar" (keyup)="onChangeEvent($event)" [(ngModel)]="buscar"  placeholder="Identificación" maxlength="4">
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3" (click)="search()">{{this.textoBoton}}</button>
+            </div>
+          </form>
+    </div>
+</div>

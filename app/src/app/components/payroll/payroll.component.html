@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <table class="table table-striped">
+
+            <tr *ngFor="let item of payroll">
+                
+              <td>Bonus de Rol</td>
+              <td>{{item.bonusRole1}}</td>
+
+              <td>Bonus de Rol 2</td>
+              <td>{{item.bonusRole2}}</td>
+
+              <td>Bonus de Entregas</td>
+              <td>{{item.delivery}}</td>
+          
+            </tr>
+                    
+          </table>
+      </div>
+      <div class="col">
+        
+      </div>
+    </div>
+  </div>

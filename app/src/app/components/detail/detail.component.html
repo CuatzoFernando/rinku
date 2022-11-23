@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <form #newEventForm="ngForm" autocomplete="off">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input [(ngModel)]="singleWorker.name" readonly="viewGeneralData" name="name" id="name" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="lastname">Apellidos:</label>
+                <input [(ngModel)]="singleWorker.lastname" readonly="viewGeneralData" name="date" id="lastname" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="identificator">Número de identificación</label>
+                <input [(ngModel)]="singleWorker.identificator" readonly="true" name="identificator" id="identificator"
+                    type="text" class="form-control" maxlength="4" />
+            </div>
+            <div class="form-group">
+                <label for="roleID">Rol</label>
+                <select id="roleID" name="roleID" disabled="viewChangeRol" [(ngModel)]="singleWorker.roleID" class="form-control" >
+                    <option [value]="item.id" *ngFor="let item of roles">{{item.name}}</option>
+                  </select>
+           </div>
+            <div class="form-group">
+                <label for="state">Estado del Trabajador</label>
+                <select id="state" name="state" disabled="viewStateRol" [(ngModel)]="singleWorker.state" class="form-control" >
+                    <option value="Interno">Interno</option>
+                    <option value="Externo">Externo</option>
+                  </select>
+            </div>
+
+            <div class="form-group" *ngIf="this.viewChangeCoverShift">
+                <label for="coverShift">Cambia de Rol Temporal</label>
+                <select id="coverShift" name="coverShift" disabled="viewChangeTempRol" [(ngModel)]="singleWorker.coverShift" class="form-control" >
+                    <option [value]="item.id" *ngFor="let item of roles">{{item.name}}</option>
+                  </select>
+            </div>
+    
+        </form>
+        <hr>
+        <div class="row" *ngIf="viewButtonSave">
+            <div class="col">
+                <button type="button" class="btn btn-success" (click)="save()">Guardar Cambios</button>
+            </div>
+        </div>
+      </div>
+      <div class="col">
+        
+      </div>
+    </div>
+    <div class="row" *ngIf="viewButtons">
+        <div class="col">
+            <button type="button" class="btn btn-primary pull-left" (click)="edit()">Editar Trabajador</button>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-primary pull-left" (click)="changeRol()">Cambiar Rol del Trabajador</button>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-primary pull-left" (click)="changeState()">Cambiar Estado del Trabajador</button>
+        </div>
+        <div class="col" *ngIf="viewChangeCoverShift">
+            <button type="button" class="btn btn-primary pull-left" (click)="changeRoltemporaly()">Cambiar Rol Temporal</button>
+        </div>
+
+        <div class="col">
+            <button type="button" class="btn btn-primary pull-left" (click)="viewPayroll()">Visualizar nómina</button>
+        </div>
+        
+    </div>
+  </div>

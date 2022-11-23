@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<div class="container mt-3">            
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Estado</th>
+          <th>Rol</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of workers">
+          <td>{{i.name}}</td>
+          <td>{{i.lastname}}</td>
+          <td>{{i.state}}</td>
+          <td>{{i.roleID}}</td>
+          <td style='white-space: nowrap'>
+                <button type="button" class="btn btn-primary pull-left" (click)="detailWorker(i.id)">Detalle</button>
+                <button type="button" class="btn btn-danger pull-right" (click)="deleteWorker(i.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-success" (click)="createWorker()">Agregar Trabajador</button>
+  </div>

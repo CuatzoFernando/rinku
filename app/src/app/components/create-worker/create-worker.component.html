@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <form #newEventForm="ngForm" autocomplete="off">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input [(ngModel)]="singleWorker.name" name="name" id="name" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="lastname">Apellidos:</label>
+                <input [(ngModel)]="singleWorker.lastname" name="date" id="lastname" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="roleID">Rol</label>
+                <select id="roleID" name="roleID" [(ngModel)]="singleWorker.roleID" class="form-control" >
+                    <option [value]="item.id" *ngFor="let item of roles">{{item.name}}</option>
+                  </select>
+           </div>
+            <div class="form-group">
+                <label for="state">Estado del Trabajador</label>
+                <select id="state" name="state" [(ngModel)]="singleWorker.state" class="form-control" >
+                    <option value="Interno">Interno</option>
+                    <option value="Externo">Externo</option>
+                  </select>
+            </div>
+    
+        </form>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-success" (click)="save()">Guardar Cambios</button>
+            </div>
+        </div>
+      </div>
+      <div class="col">
+        
+      </div>
+    </div>
+  </div>
